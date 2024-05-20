@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<div class="container">
+  <h1>Productos</h1>
+
+  <button mat-raised-button color="primary" type="submit" class="btn btn-info" (click)="openAddProForm()" > Nuevo Usuario</button>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Nombres</th>
+      <th>Descripcion</th>
+      <th>Observacion</th>
+      <th>Valor</th>
+      <th>Cantidad</th>
+      <th>Estado</th>
+      <th width="220px">Accion</th>
+    </tr>
+
+    <tr *ngFor="let i of productos">
+      <td>{{i.pro_ID }}</td>
+      <td>{{i.pro_NOMBRES}}</td>
+      <td>{{i.pro_DESCRIPCION}}</td>
+      <td>{{i.pro_OBSERVACION}}</td>
+      <td>{{i.pro_VALOR}}</td>
+      <td>{{i.pro_CANTIDAD}}</td>
+      <td>{{i.pro_ESTADO}}</td>
+
+
+
+      <td>
+
+        <button type="button"   class="btn btn-danger" (click)="openEditProForm(i.pro_ID)">Editar</button>
+        <button type="button"   class="btn btn-danger" (click)="eliminarProducto(i.pro_ID)">Eliminar</button>
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+<app-footer></app-footer>

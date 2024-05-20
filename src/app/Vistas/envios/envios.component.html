@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<div class="container">
+  <h1>Envios </h1>
+
+  <button mat-raised-button color="primary" type="submit" class="btn btn-info" (click)="openAddEnvForm()" > Nuevo Envio</button>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Codigo Cliente</th>
+      <th>Telefono</th>
+      <th>Codigo Bodega</th>
+      <th>Fecha Envio</th>
+      <th>Fecha Entrega</th>
+      <th>Ciudad Origen</th>
+      <th>Ciudad Destino</th>
+      <th>Estado</th>
+      <th width="220px">Accion</th>
+    </tr>
+
+    <tr *ngFor="let dt of envios">
+      <td>{{dt.env_REFERENCIA }}</td>
+      <td>{{dt.env_CLIE_ID}}</td>
+      <td>{{dt.env_TELEFONO}}</td>
+      <td>{{dt.env_BOD_ID}}</td>
+      <td>{{dt.env_FECHA_ENVIO}}</td>
+      <td>{{dt.env_FECHA_ENTREGA}}</td>
+      <td>{{dt.env_ORIG_CIU_ID}}</td>
+      <td>{{dt.env_DEST_CIU_ID}}</td>
+      <td>{{dt.env_ESTADO}}</td>
+      <td>
+
+        <button type="button"   class="btn btn-danger" (click)="openEditEnvForm(dt.env_REFERENCIA)">Editar</button>
+        <button type="button"   class="btn btn-danger" (click)="eliminarEnvio(dt.env_REFERENCIA)">Eliminar</button>
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+<app-footer></app-footer>

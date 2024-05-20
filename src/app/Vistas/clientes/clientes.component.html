@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<div class="container">
+  <h1>Clientes </h1>
+
+  <button mat-raised-button color="primary" type="submit" class="btn btn-info" (click)="openAddClieForm()" > Nuevo Cliente</button>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Nombres</th>
+      <th>Tipo Documento</th>
+      <th>Cedula</th>
+      <th>Correo</th>
+      <th>Celular</th>
+      <th>Direccion</th>
+      <th>Ciudad</th>
+      <th>Estado</th>
+      <th width="220px">Accion</th>
+    </tr>
+
+    <tr *ngFor="let i of clientes">
+      <td>{{i.cli_ID }}</td>
+      <td>{{i.cli_NOMBRES}}</td>
+      <td>{{i.cli_TIPODOCUMENTO}}</td>
+      <td>{{i.cli_CEDULA}}</td>
+      <td>{{i.cli_CORREO}}</td>
+      <td>{{i.cli_CELULAR}}</td>
+      <td>{{i.cli_DIRECCION}}</td>
+      <td>{{i.cli_CIUDAD_ID}}</td>
+      <td>{{i.cli_ESTADO}}</td>
+      <td>
+
+        <button type="button"   class="btn btn-danger" (click)="openEditCliForm(i.cli_ID)">Editar</button>
+        <button type="button"   class="btn btn-danger" (click)="eliminarCliente(i.cli_ID)">Eliminar</button>
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+<app-footer></app-footer>
+

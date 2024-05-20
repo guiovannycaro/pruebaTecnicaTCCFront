@@ -1,0 +1,58 @@
+<form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+  <div id="contenedor">
+    <div id="contenido">
+  <!-- Email input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+
+    <input type="email" id="username" name="username" class="form-control" placeholder="login" formControlName="username" aria-describedby="basic-addon2"/>
+
+
+    <label class="form-label" for="form2Example1">Email address</label>
+  </div>
+
+  <!-- Password input -->
+  <div data-mdb-input-init class="form-outline mb-4"  placeholder="password">
+    <input type="password" id="password" name="password"  class="form-control"  formControlName="password"/>
+    <label class="form-label" for="form2Example2">Password</label>
+  </div>
+
+  <!-- 2 column grid layout for inline styling -->
+  <div class="row mb-4">
+    <div class="col">
+      <!-- Simple link -->
+      <a href="#!" routerLink="/recordar" >Recordar</a>  -   <a href="#!" routerLink="/Registrarse" >Registrarse</a>
+    </div>
+    <div class="col">
+       <!-- Submit button -->
+  <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary" >Sign in</button>
+
+      </div>
+
+  </div>
+
+
+
+</div>
+</div>
+</form>
+
+<style>
+#contenedor{
+  float: left;
+    width: 40%;
+    height: 400px;
+    padding: 0% 0% 0% 0%;
+    margin: 15% 15% 15% 28% !important;
+    border-radius: 20px;
+    border-color: black; border-style: solid; margin: 1px;
+}
+
+#contenido{
+  float: left;
+    width: 57%;
+    height: 335px;
+    padding: 0% 0% 0% 0%;
+    margin: 2% 15% 15% 28% !important;
+
+}
+</style>

@@ -1,0 +1,188 @@
+<form (ngSubmit)="onSubmit()">
+
+  <div style="width: 80% !important;MARGIN: 0% 5% 0% 10%;">
+        <div class="row col-xs-12">
+          <h1 style=" text-align: center;">
+                <b> Despachos de Mercancias</b>
+            </h1>
+       </div>
+
+       <div class="row col-xs-12">
+        <div class="col">
+            <label for="lreferencia">REFERENCIA</label>
+
+
+            <input type="text" class="form-control" id="referencia" name="referencia"    [(ngModel)]="enviosa.env_REFERENCIA" readonly="true">
+
+        </div>
+
+      </div>
+
+       <div class="row col-xs-6">
+        <div class="col">
+            <label for="lcliente">Cliente</label>
+            <select class="form-select" id="tcliente" name="tcliente" aria-label="Default select example"   [(ngModel)]="enviosa.env_CLIE_ID" >
+              <option default>---Select---</option>
+              <option *ngFor="let sdata of clientes" [value]="sdata.cli_ID"> {{sdata.cli_NOMBRES}}</option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="ltelefono">Telefono</label>
+            <input type="text" class="form-control" id="telefono" name="telefono"  placeholder="Digite Direccion"  [(ngModel)]="enviosa.env_TELEFONO">
+        </div>
+      </div>
+
+
+
+      <div class="row col-xs-6">
+        <div class="col">
+            <label for="lbodega">Bodega</label>
+            <select class="form-select" id="tbodega" name="tbodega" aria-label="Default select example"  [(ngModel)]="enviosa.env_BOD_ID" >
+              <option value="1">centro</option>
+              <option value="2">oriente</option>
+              <option value="3">este</option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="lfecenv">Fecha Envio</label>
+            <input type="text" class="form-control" id="fecenv" name="fecenv"    [(ngModel)]="enviosa.env_FECHA_ENVIO">
+        </div>
+
+
+
+      </div>
+
+      <div class="row col-xs-6">
+        <div class="col">
+          <label for="lfecent">Fecha Entrega</label>
+          <input type="text" class="form-control" id="fecent" name="fecent"   [(ngModel)]="enviosa.env_FECHA_ENTREGA">
+       </div>
+
+        <div class="col">
+            <label for="lorigen">Ciudad Origen</label>
+            <select class="form-select" id="torigen" name="torigen" aria-label="Default select example"  [(ngModel)]="enviosa.env_ORIG_CIU_ID" >
+              <option value="1">bogota</option>
+              <option value="2">medellin</option>
+              <option value="3">cali</option>
+            </select>
+        </div>
+      </div>
+
+      <div class="row col-xs-6">
+        <div class="col">
+          <label for="ldestino">Ciudad Destino</label>
+          <select class="form-select" id="tdestion" name="tdestion" aria-label="Default select example" [(ngModel)]="enviosa.env_DEST_CIU_ID"  >
+            <option value="1">bogota</option>
+            <option value="2">medellin</option>
+            <option value="3">cali</option>
+          </select>
+      </div>
+
+      <div class="col">
+        <label for="lestado">Estado</label>
+        <select class="form-select" id="testado" name="testado" aria-label="Default select example" [(ngModel)]="enviosa.env_ESTADO" >
+          <option value="1">Activo</option>
+          <option value="2">Inactivo</option>
+        </select>
+    </div>
+      </div>
+      <div class="row col-xs-12">
+        <div>&nbsp;</div>
+      </div>
+
+      <div class="row col-xs-6">
+        <form (ngSubmit)="onSubmitProducto()">
+          <div class="col">
+            <h1 style=" text-align: center;">
+              <b> Cargar Mercancias</b>
+          </h1>
+          </div>
+
+          <div class="col">
+              <label for="lproductos">Mercancias</label>
+              <select class="form-select" id="sproductos" name="sproductos" aria-label="Default select example" [(ngModel)]="datoenviar.datenv_ID"  >
+                <option default>---Select---</option>
+                <option *ngFor="let sdata of productos" [value]="sdata.pro_ID">
+                  {{sdata.pro_NOMBRES}}
+              </option>
+
+              </select>
+             </div>
+
+             <div class="col">
+              <label for="cantidad">Cantidad</label>
+              <input type="text" class="form-control" id="cantidad" name="cantidad"   [(ngModel)]="datoenviar.datenv_CANTIDAD" >
+             </div>
+
+
+
+             <div class="col">
+              <div>&nbsp;</div>
+            </div>
+           <div class="col">
+              <button >➕ Agregar Mercancia</button>
+           </div>
+
+           <div class="col">
+            <div>&nbsp;</div>
+          </div>
+
+
+      </form>
+      </div>
+
+      <div class="row col-xs-12">
+        <div>&nbsp;</div>
+      </div>
+
+      <div class="row col-xs-12">
+      <table class="table table-bordered">
+        <tr>
+          <th>id</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Total</th>
+          <th width="220px">Accion</th>
+        </tr>
+
+        <tr *ngFor="let d of detalleenvio">
+          <td> </td>
+          <td>{{d.envdt_PROD_ID}}</td>
+
+
+
+          <td>{{d.envdt_CANTIDAD}}</td>
+          <td>{{d.envdt_PRECIO}}</td>
+          <td>{{ d.envdt_TOTAL }}</td>
+          <td>
+
+            <button type="button"   class="btn btn-danger" (click)="eliminarEnvioDetalle(d.envdt_IDP)">Eliminar</button>
+          </td>
+        </tr>
+
+
+      </table>
+     </div>
+
+     <div class="row col-xs-12">
+      <div>&nbsp;</div>
+    </div>
+    <div class="row col-xs-12">
+      <div class="col" style=" text-align: center;">
+        <button type="button" class="btn btn-primary" [mat-dialog-close]="true">Cancelar</button>
+      </div>
+      <div class="col" style=" text-align: center;">
+        <button type="submit" [mat-dialog-close]="true" class="btn btn-success">Guardar</button>
+      </div>
+    </div>
+
+
+<div class="row col-xs-12">
+    <div>&nbsp;</div>
+</div>
+
+
+  </div>
+</form>
+
