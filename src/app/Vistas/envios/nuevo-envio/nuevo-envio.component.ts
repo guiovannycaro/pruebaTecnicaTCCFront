@@ -63,7 +63,10 @@ export class NuevoEnvioComponent  implements OnInit{
   }
 
   cargProductoTablTemp(){
+    this.datoenviar.datenv_REF =  this.enviosa.env_REFERENCIA;
     this.detenv.registrarDetalleEnvio(this.datoenviar).subscribe(dato=>{
+
+      console.log(this.datoenviar);
       console.log(dato);
       alert('El registro se Ingreso Correctamente');
       this.obtenerDetalleEnvio();
@@ -96,7 +99,7 @@ export class NuevoEnvioComponent  implements OnInit{
       console.log('DATOS A ENVIAR AL BACK' +this.envios);
       this.cargDetalleEnvTemp();
       alert('El registro se Ingreso Correctamente');
-
+      window.location.reload();
     },error=>{
      console.log(error);
      alert('El registro no se Ingreso Correctamente');

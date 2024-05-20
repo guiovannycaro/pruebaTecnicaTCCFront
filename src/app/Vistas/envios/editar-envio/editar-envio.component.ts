@@ -124,7 +124,7 @@ export class EditarEnvioComponent implements OnInit{
     this.api.editarEnvio(this.enviosa).subscribe(dato=>{
       console.log('DATOS A ENVIAR AL BACK' +this.envios);
       alert('El registro se Ingreso Correctamente');
-
+      window.location.reload();
     },error=>{
      console.log(error);
      alert('El registro no se Ingreso Correctamente');
