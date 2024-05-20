@@ -66,16 +66,22 @@ export class EditarEnvioComponent implements OnInit{
 
 
 
-      this.detenv.obtenerListaDetalleEnvioById(this.data).subscribe(dato=>{
-            this.detalleenvio = dato;
-            console.log(dato);
-      },error=> console.log(error))
+
 
       this.obtenerListaProductos();
       this.obtenerListaClientes();
+      this.obtenerListaDetalleEnvioTemp();
 
   }
 
+
+  private obtenerListaDetalleEnvioTemp(){
+
+    this.detenv.obtenerListaDetalleEnvioById(this.data).subscribe(dato=>{
+      this.detalleenvio = dato;
+      console.log(dato);
+},error=> console.log(error))
+  }
 
   private obtenerListaProductos(){
     this.prod.obtenerListaProductos().subscribe(dato=>{
@@ -102,6 +108,7 @@ export class EditarEnvioComponent implements OnInit{
 
   cargProductoTabl(){
     this.datoenviar.datenv_REF =this.data;
+    console.log(this.datoenviar);
     this.detenv.registrarDetalleEnvioTemp(this.datoenviar).subscribe(dato=>{
       console.log(dato);
       alert('El registro se Ingreso Correctamente');
