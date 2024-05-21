@@ -44,7 +44,7 @@ export class ProductosService {
  }
 
  editarProductos(productos:Productos):Observable<any>{
-  let direccion = this.BaseUrl + "CrudProductos/editarUsuarios";
+  let direccion = this.BaseUrl + "CrudProductos/editarProductos";
   let response = this.http.post<any>(direccion,productos);
   console.log(response);
   return response;
