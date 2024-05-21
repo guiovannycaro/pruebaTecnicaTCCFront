@@ -64,10 +64,6 @@ export class EditarEnvioComponent implements OnInit{
       console.log(this.data);
      },error=> console.log(error))
 
-
-
-
-
       this.obtenerListaProductos();
       this.obtenerListaClientes();
       this.obtenerListaDetalleEnvioTemp();

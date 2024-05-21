@@ -1,1 +1,74 @@
-<p>nuevo-producto works!</p>
+<form (ngSubmit)="onSubmit()">
+
+  <div style="width: 80% !important;MARGIN: 0% 5% 0% 10%;">
+
+    <div class="row col-xs-12">
+      <h1 style=" text-align: center;"><b> Nuevo Producto</b></h1>
+      </div>
+
+      <div class="row col-xs-6">
+        <div class="col">
+            <label for="lnombre">Nombres</label>
+            <input type="text" class="form-control" id="nombres" name="nombres" [(ngModel)]="productos.pro_NOMBRES"  placeholder="Digite Nombre">
+        </div>
+        <div class="col">
+            <label for="ldireccion">Direccion</label>
+            <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="productos.pro_DESCRIPCION" placeholder="Digite Direccion">
+        </div>
+      </div>
+
+      <div class="row col-xs-6">
+        <div class="col">
+            <label for="ltel">Telefono</label>
+            <input type="text" class="form-control" id="telefono" name="telefono" [(ngModel)]="productos.pro_OBSERVACION" placeholder="Digite Telefono">
+        </div>
+        <div class="col">
+            <label for="lcorr">Correo</label>
+            <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="productos.pro_VALOR" placeholder="Digite Correo">
+        </div>
+      </div>
+
+      <div class="row col-xs-6">
+
+        <div class="col">
+            <label for="lrol">Rol</label>
+
+            <select class="form-select" id="rol" name="rol" [(ngModel)]="productos.pro_CANTIDAD" >
+              <option value="1">Administrador</option>
+              <option value="2">Cliente</option>
+              <option value="3">Empleado</option>
+            </select>
+
+
+          </div>
+
+          <div class="col">
+            <label for="lest">Estado</label>
+            <select class="form-select" id="estado" name="estado" [(ngModel)]="productos.pro_ESTADO" >
+              <option value="1">Activo</option>
+              <option value="2">Inactivo</option>
+            </select>
+          </div>
+
+      </div>
+
+      <div class="row col-xs-12">
+        <div>&nbsp;</div>
+      </div>
+      <div class="row col-xs-12">
+        <div class="col" style=" text-align: center;">
+          <button type="button" class="btn btn-primary" mat-dialog-close="true">Cancelar</button>
+        </div>
+        <div class="col" style=" text-align: center;">
+          <button type="submit" [mat-dialog-close]="true" class="btn btn-success">Guardar</button>
+        </div>
+      </div>
+
+
+  <div class="row col-xs-12">
+      <div>&nbsp;</div>
+    </div>
+  </div>
+
+  </form>
+
